@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Can We Make It Better? - Untuk Sayang</title>
+  
+  <meta name="description" content="Masih Bolehkah Aku Memperbaiki Semuanya, Sayang?">
+  <meta name="theme-color" content="#F8C8DC">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Falling Petals & Hearts -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a href="./index.html" class="header-brand" aria-label="Beranda">
+      <span class="brand-icon">❤️</span>
+      <span class="brand-text">Untuk Sayang<span class="brand-tag">, Surat Hatiku</span></span>
+    </a>
+
+    <!-- Floating Audio Controller -->
+    <div class="audio-controller" role="region" aria-label="Pemutar Musik Romantis">
+      <audio id="bgm-audio" loop preload="auto">
+        <source src="./assets/music/background.mp3" type="audio/mpeg">
+        <source src="./assets/music/background.mp4" type="audio/mp4">
+      </audio>
+      <button id="audio-play-btn" class="audio-btn" aria-label="Putar Musik Romantis" title="Putar Musik Romantis">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="audio-mute-btn" class="audio-btn" aria-label="Bisukan Musik" title="Bisukan Musik">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+      <div class="audio-info">
+        <span class="audio-label">Melodi Kasih</span>
+        <div class="audio-visualizer" aria-hidden="true">
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar & Stepper -->
+  <nav class="progress-container" aria-label="Perjalanan Halaman">
+    <div class="progress-track">
+      <div class="progress-fill" style="width: 100%;"></div>
+    </div>
+    <div class="step-indicator-wrapper">
+      <a href="./index.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Pembuka</span>
+      </a>
+      <a href="./memories.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Kenangan</span>
+      </a>
+      <a href="./apology.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Maaf</span>
+      </a>
+      <a href="./letter.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Surat</span>
+      </a>
+      <a href="./poetry.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Sajak</span>
+      </a>
+      <a href="./ending.html" class="step-item active" aria-current="page">
+        <span class="step-dot"></span>
+        <span class="step-text">Harapan</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content: Ending Resolution -->
+  <main class="page-wrapper">
+    <div class="content-container ending-wrapper">
+      <div class="ending-card">
+        
+        <!-- Badge -->
+        <div class="romantic-badge">
+          <span class="badge-icon">🕊️</span>
+          <span>Can We Make It Better?</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="section-title">
+          Masih Bolehkah Aku Memperbaiki Semuanya, Sayang?
+        </h1>
+
+        <!-- Emotionally respectful message -->
+        <div class="ending-lead">
+          <p style="margin-bottom: 16px;">
+            Aku tidak meminta semuanya kembali seperti semula dalam satu malam. Aku hanya berharap kita masih bisa saling mendengarkan, memahami, dan belajar menjadi lebih baik.
+          </p>
+          <p style="margin-bottom: 16px;">
+            Jika kamu masih membutuhkan waktu, aku akan menghargainya. Jika kamu ingin berbicara, aku akan berusaha mendengarkan tanpa menyela.
+          </p>
+          <p style="color: var(--deep-rose); font-weight: 500;">
+            Apa pun yang sedang kamu rasakan saat ini, aku ingin kamu tahu bahwa aku menghargainya.
+          </p>
+        </div>
+
+        <!-- Two Respectful Interactive Choices -->
+        <div class="ending-actions-grid" role="group" aria-label="Pilihan Respon Sayang">
+          <button id="btn-choice-talk" class="btn-choice-talk" type="button">
+            <span>Aku Mau Kita Bicara</span>
+            <span aria-hidden="true">❤️</span>
+          </button>
+          <button id="btn-choice-time" class="btn-choice-time" type="button">
+            <span>Aku Butuh Waktu</span>
+            <span aria-hidden="true">🕊️</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Empathetic Response Revealed on Click -->
+        <div id="ending-response" class="ending-response-box" role="alert" aria-live="polite">
+          <div class="response-icon"></div>
+          <h2 class="response-title"></h2>
+          <p class="response-text"></p>
+          <div class="response-actions"></div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-nav">
+    <a href="./poetry.html" class="nav-link-btn" aria-label="Kembali ke Sajak">
+      <span aria-hidden="true">←</span>
+      <span>Sajak</span>
+    </a>
+    <span class="nav-page-info" style="font-size: 0.85rem; color: var(--muted-text); font-weight: 500;">
+      Halaman 6 dari 6 (Selesai)
+    </span>
+    <a href="./index.html" class="nav-link-btn nav-link-next" aria-label="Mulai dari Halaman Awal">
+      <span>Mulai dari Awal</span>
+      <span aria-hidden="true">↺</span>
+    </a>
+  </footer>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+</body>
+</html>

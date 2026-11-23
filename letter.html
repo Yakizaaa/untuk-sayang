@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Surat dari Hatiku - Untuk Sayang</title>
+  
+  <meta name="description" content="Sebuah surat cinta digital yang tertulis tulus untukmu.">
+  <meta name="theme-color" content="#F8C8DC">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Falling Petals & Hearts -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a href="./index.html" class="header-brand" aria-label="Beranda">
+      <span class="brand-icon">❤️</span>
+      <span class="brand-text">Untuk Sayang<span class="brand-tag">, Surat Hatiku</span></span>
+    </a>
+
+    <!-- Floating Audio Controller -->
+    <div class="audio-controller" role="region" aria-label="Pemutar Musik Romantis">
+      <audio id="bgm-audio" loop preload="auto">
+        <source src="./assets/music/background.mp3" type="audio/mpeg">
+        <source src="./assets/music/background.mp4" type="audio/mp4">
+      </audio>
+      <button id="audio-play-btn" class="audio-btn" aria-label="Putar Musik Romantis" title="Putar Musik Romantis">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="audio-mute-btn" class="audio-btn" aria-label="Bisukan Musik" title="Bisukan Musik">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+      <div class="audio-info">
+        <span class="audio-label">Melodi Kasih</span>
+        <div class="audio-visualizer" aria-hidden="true">
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar & Stepper -->
+  <nav class="progress-container" aria-label="Perjalanan Halaman">
+    <div class="progress-track">
+      <div class="progress-fill" style="width: 66.66%;"></div>
+    </div>
+    <div class="step-indicator-wrapper">
+      <a href="./index.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Pembuka</span>
+      </a>
+      <a href="./memories.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Kenangan</span>
+      </a>
+      <a href="./apology.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Maaf</span>
+      </a>
+      <a href="./letter.html" class="step-item active" aria-current="page">
+        <span class="step-dot"></span>
+        <span class="step-text">Surat</span>
+      </a>
+      <a href="./poetry.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Sajak</span>
+      </a>
+      <a href="./ending.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Harapan</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content: Interactive Digital Letter -->
+  <main class="page-wrapper">
+    <div class="content-container letter-page-wrapper">
+      
+      <!-- Badge -->
+      <div class="romantic-badge">
+        <span class="badge-icon">💌</span>
+        <span>A Letter from Me</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="section-title" style="text-align: center;">
+        Sebuah Surat yang Tertulis Khusus Untukmu
+      </h1>
+      <p class="section-subtitle" style="text-align: center;">
+        Sentuh amplop di bawah ini atau tekan tombol untuk membuka isi surat yang tersimpan rapi untukmu.
+      </p>
+
+      <!-- Interactive 3D Envelope Container -->
+      <div class="interactive-envelope-container">
+        <div id="interactive-envelope" class="envelope-card" role="button" tabindex="0" aria-label="Sentuh untuk membuka amplop surat cinta">
+          <div class="envelope-flap"></div>
+          <div class="envelope-seal-heart" aria-label="Segel Hati">❤️</div>
+          <div class="letter-sheet">
+            <span style="font-family: var(--font-hand); font-size: 1.6rem; color: var(--deep-rose);">
+              Untuk Sayang...
+            </span>
+            <p style="font-size: 0.85rem; color: var(--muted-text); margin-top: 6px;">
+              (Klik untuk membuka kertas surat)
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <button id="open-letter-btn" class="btn-romantic">
+            <span>Buka Surat</span>
+            <span aria-hidden="true">✉️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Revealed Letter Stationery -->
+      <article id="letter-stationery" class="letter-stationery" role="article" aria-label="Isi Surat Cinta">
+        <div class="letter-inner-text">
+          
+          <h2 style="font-family: var(--font-hand); font-size: clamp(2rem, 4.2vw, 2.8rem); color: var(--deep-rose); margin-bottom: 24px; font-weight: normal;">
+            Untuk Sayang, seseorang yang selalu ingin aku bahagiakan...
+          </h2>
+
+          <p>
+            Aku tidak pernah berharap hubungan kita selalu berjalan tanpa masalah. Aku tahu kita adalah dua manusia yang masih sama-sama belajar memahami satu sama lain.
+          </p>
+
+          <p>
+            Namun, aku tidak ingin perbedaan, kesalahpahaman, ataupun ego menjadi alasan untuk melupakan semua hal baik yang pernah kita bangun bersama.
+          </p>
+
+          <p>
+            Aku ingin belajar mendengarkanmu tanpa harus selalu merasa benar. Aku ingin belajar memahami perasaanmu tanpa harus menunggu kamu menjelaskan semuanya berulang kali.
+          </p>
+
+          <p>
+            Jika selama ini aku terlalu sibuk dengan pikiranku sendiri hingga lupa memahami isi hatimu, aku sungguh menyesal.
+          </p>
+
+          <p>
+            Aku tidak meminta kamu untuk langsung melupakan semuanya. Aku juga tidak ingin memaksamu untuk segera memaafkanku.
+          </p>
+
+          <p>
+            Aku hanya berharap masih ada ruang untuk kita berbicara dengan hati yang lebih tenang.
+          </p>
+
+          <p>
+            Jika masih ada kesempatan, izinkan aku memperbaiki hal-hal yang pernah aku rusak. Bukan dengan janji yang terdengar indah, melainkan dengan sikap yang perlahan bisa kamu percaya.
+          </p>
+
+          <p>
+            Terima kasih sudah hadir dan menjadi bagian dari banyak cerita indah dalam hidupku.
+          </p>
+
+          <div class="letter-signature">
+            <p style="font-size: 1.15rem; font-family: var(--font-serif); font-style: italic; color: var(--muted-text); margin-bottom: 4px;">
+              Dengan segala ketulusan dan penyesalan,
+            </p>
+            <p>
+              Seseorang yang masih menyayangimu.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Next Step Button Inside Opened Letter -->
+        <div style="text-align: center; margin-top: 40px; border-top: 1px dashed var(--blush-pink); padding-top: 28px;">
+          <a href="./poetry.html" class="btn-romantic">
+            <span>Baca Sajak Hatiku Selanjutnya</span>
+            <span aria-hidden="true">📖</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-nav">
+    <a href="./apology.html" class="nav-link-btn" aria-label="Kembali ke Permintaan Maaf">
+      <span aria-hidden="true">←</span>
+      <span>Maaf</span>
+    </a>
+    <span class="nav-page-info" style="font-size: 0.85rem; color: var(--muted-text); font-weight: 500;">
+      Halaman 4 dari 6
+    </span>
+    <a href="./poetry.html" class="nav-link-btn nav-link-next" aria-label="Lanjut ke Sajak">
+      <span>Sajak</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </footer>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+</body>
+</html>

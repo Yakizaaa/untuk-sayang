@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Untuk Sayang, Sebuah Surat dari Hati</title>
+  
+  <!-- Meta SEO & Theme -->
+  <meta name="description" content="Sebuah ungkapan tulus dan surat dari hati untuk seseorang yang paling istimewa.">
+  <meta name="theme-color" content="#F8C8DC">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Petals & Hearts Falling Canvas -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a href="./index.html" class="header-brand" aria-label="Beranda">
+      <span class="brand-icon">❤️</span>
+      <span class="brand-text">Untuk Sayang<span class="brand-tag">, Surat Hatiku</span></span>
+    </a>
+
+    <!-- Floating Audio Controller -->
+    <div class="audio-controller" role="region" aria-label="Pemutar Musik Romantis">
+      <audio id="bgm-audio" loop preload="auto">
+        <source src="./assets/music/background.mp3" type="audio/mpeg">
+        <source src="./assets/music/background.mp4" type="audio/mp4">
+      </audio>
+      <button id="audio-play-btn" class="audio-btn" aria-label="Putar Musik Romantis" title="Putar Musik Romantis">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="audio-mute-btn" class="audio-btn" aria-label="Bisukan Musik" title="Bisukan Musik">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+      <div class="audio-info">
+        <span class="audio-label">Melodi Kasih</span>
+        <div class="audio-visualizer" aria-hidden="true">
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar & Stepper -->
+  <nav class="progress-container" aria-label="Perjalanan Halaman">
+    <div class="progress-track">
+      <div class="progress-fill" style="width: 16.66%;"></div>
+    </div>
+    <div class="step-indicator-wrapper">
+      <a href="./index.html" class="step-item active" aria-current="page">
+        <span class="step-dot"></span>
+        <span class="step-text">Pembuka</span>
+      </a>
+      <a href="./memories.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Kenangan</span>
+      </a>
+      <a href="./apology.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Maaf</span>
+      </a>
+      <a href="./letter.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Surat</span>
+      </a>
+      <a href="./poetry.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Sajak</span>
+      </a>
+      <a href="./ending.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Harapan</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content: Welcome Hero -->
+  <main class="page-wrapper">
+    <div class="content-container">
+      <div class="welcome-hero">
+        
+        <!-- Badge -->
+        <div class="romantic-badge">
+          <span class="badge-icon">💌</span>
+          <span>A Little Something for You</span>
+        </div>
+
+        <!-- 3D Envelope Illustration -->
+        <div class="envelope-showcase">
+          <a href="./memories.html" class="envelope-wrapper-illus" aria-label="Buka Suratku">
+            <div class="envelope-flap-decor"></div>
+            <div class="envelope-seal-illus">❤️</div>
+          </a>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="section-title">
+          Untuk Sayang, yang Selalu Punya Tempat di Hatiku.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="welcome-lead">
+          Ada beberapa hal yang mungkin sulit aku ucapkan secara langsung, tapi kali ini aku ingin mencoba menyampaikannya lewat sebuah cerita.
+        </p>
+
+        <!-- CTA Button -->
+        <a href="./memories.html" class="btn-romantic" id="btn-open-welcome">
+          <span>Buka Suratku</span>
+          <span aria-hidden="true">❤️</span>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-nav">
+    <span class="nav-page-info" style="font-size: 0.85rem; color: var(--muted-text); font-weight: 500;">
+      Halaman 1 dari 6
+    </span>
+    <a href="./memories.html" class="nav-link-btn nav-link-next">
+      <span>Kenangan Kita</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </footer>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+</body>
+</html>

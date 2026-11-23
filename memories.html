@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kenangan Kita - Untuk Sayang</title>
+  
+  <meta name="description" content="Tentang Kita, dan Kenangan yang Masih Aku Simpan.">
+  <meta name="theme-color" content="#F8C8DC">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Falling Petals & Hearts -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a href="./index.html" class="header-brand" aria-label="Beranda">
+      <span class="brand-icon">❤️</span>
+      <span class="brand-text">Untuk Sayang<span class="brand-tag">, Surat Hatiku</span></span>
+    </a>
+
+    <!-- Floating Audio Controller -->
+    <div class="audio-controller" role="region" aria-label="Pemutar Musik Romantis">
+      <audio id="bgm-audio" loop preload="auto">
+        <source src="./assets/music/background.mp3" type="audio/mpeg">
+        <source src="./assets/music/background.mp4" type="audio/mp4">
+      </audio>
+      <button id="audio-play-btn" class="audio-btn" aria-label="Putar Musik Romantis" title="Putar Musik Romantis">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="audio-mute-btn" class="audio-btn" aria-label="Bisukan Musik" title="Bisukan Musik">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+      <div class="audio-info">
+        <span class="audio-label">Melodi Kasih</span>
+        <div class="audio-visualizer" aria-hidden="true">
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+          <div class="viz-bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar & Stepper -->
+  <nav class="progress-container" aria-label="Perjalanan Halaman">
+    <div class="progress-track">
+      <div class="progress-fill" style="width: 33.33%;"></div>
+    </div>
+    <div class="step-indicator-wrapper">
+      <a href="./index.html" class="step-item completed">
+        <span class="step-dot"></span>
+        <span class="step-text">Pembuka</span>
+      </a>
+      <a href="./memories.html" class="step-item active" aria-current="page">
+        <span class="step-dot"></span>
+        <span class="step-text">Kenangan</span>
+      </a>
+      <a href="./apology.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Maaf</span>
+      </a>
+      <a href="./letter.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Surat</span>
+      </a>
+      <a href="./poetry.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Sajak</span>
+      </a>
+      <a href="./ending.html" class="step-item">
+        <span class="step-dot"></span>
+        <span class="step-text">Harapan</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content: Memories Gallery -->
+  <main class="page-wrapper">
+    <div class="content-container" style="text-align: center;">
+      
+      <!-- Badge -->
+      <div class="romantic-badge">
+        <span class="badge-icon">📷</span>
+        <span>Our Little Memories</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="section-title">
+        Tentang Kita, dan Kenangan yang Masih Aku Simpan.
+      </h1>
+
+      <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+        Di antara setiap langkah dan hari yang kita lalui bersama, selalu ada detik-detik berharga yang membekas manis di dalam ingatanku.
+      </p>
+
+      <!-- Polaroid Scrapbook Grid -->
+      <div class="memories-grid">
+
+        <!-- Foto 1 -->
+        <article class="polaroid-card" tabindex="0" role="button" aria-label="Perbesar foto kenangan pertama">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="./assets/images/foto1.jpg" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='./assets/images/foto1.jpeg';}" alt="Momen sederhana bersamamu" class="polaroid-img" loading="lazy">
+            <div class="polaroid-hover-hint">
+              <span>🔍 Perbesar</span>
+            </div>
+          </div>
+          <span class="polaroid-tag">Momen Manis</span>
+          <p class="polaroid-caption">
+            "Di antara banyaknya hari yang pernah berlalu, ada beberapa momen sederhana bersamamu yang selalu ingin aku kenang."
+          </p>
+        </article>
+
+        <!-- Foto 2 -->
+        <article class="polaroid-card" tabindex="0" role="button" aria-label="Perbesar foto kenangan kedua">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="./assets/images/foto2.jpg" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='./assets/images/foto2.jpeg';}" alt="Setiap kenangan bersamamu" class="polaroid-img" loading="lazy">
+            <div class="polaroid-hover-hint">
+              <span>🔍 Perbesar</span>
+            </div>
+          </div>
+          <span class="polaroid-tag">Jejak Waktu</span>
+          <p class="polaroid-caption">
+            "Barangkali waktu tidak bisa diulang, tetapi setiap kenangan bersamamu akan selalu punya tempat tersendiri di hatiku."
+          </p>
+        </article>
+
+        <!-- Foto 3 -->
+        <article class="polaroid-card" tabindex="0" role="button" aria-label="Perbesar foto kenangan ketiga">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="./assets/images/foto3.jpg" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='./assets/images/foto3.jpeg';}" alt="Kebahagiaan yang sangat berarti" class="polaroid-img" loading="lazy">
+            <div class="polaroid-hover-hint">
+              <span>🔍 Perbesar</span>
+            </div>
+          </div>
+          <span class="polaroid-tag">Arti Hadirmu</span>
+          <p class="polaroid-caption">
+            "Aku tidak tahu bagaimana hari-hari kita selanjutnya, tetapi aku tahu bahwa setiap kebahagiaan yang pernah kita bagi adalah sesuatu yang sangat berarti."
+          </p>
+        </article>
+
+      </div>
+
+      <!-- Action Button to Next Page -->
+      <div style="margin-top: 15px;">
+        <a href="./apology.html" class="btn-romantic">
+          <span>Lanjutkan ke Ungkapan Hatiku</span>
+          <span aria-hidden="true">💌</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Galeri Kenangan">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Tutup Tampilan Foto">&times;</button>
+      <button class="lightbox-nav-btn lightbox-prev" aria-label="Foto Sebelumnya">&#8249;</button>
+      <button class="lightbox-nav-btn lightbox-next" aria-label="Foto Selanjutnya">&#8250;</button>
+      <div class="lightbox-img-box">
+        <img id="lightbox-img" src="" alt="Foto Kenangan Pilihan">
+      </div>
+      <div class="lightbox-caption-box">
+        <span id="lightbox-tag" class="polaroid-tag"></span>
+        <p id="lightbox-caption" class="polaroid-caption" style="font-size: 1.05rem;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-nav">
+    <a href="./index.html" class="nav-link-btn" aria-label="Kembali ke Halaman Pembuka">
+      <span aria-hidden="true">←</span>
+      <span>Pembuka</span>
+    </a>
+    <span class="nav-page-info" style="font-size: 0.85rem; color: var(--muted-text); font-weight: 500;">
+      Halaman 2 dari 6
+    </span>
+    <a href="./apology.html" class="nav-link-btn nav-link-next" aria-label="Lanjut ke Permintaan Maaf">
+      <span>Permintaan Maaf</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </footer>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
